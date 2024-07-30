@@ -70,7 +70,16 @@
       }
     </style>
 
-    <div id="assembly_stats"></div>
+     <div id="assembly_stats">
+      <script>
+  d3.json("output.assembly-stats.json", function(error, json) {
+    if (error) return console.warn(error);
+    asm = new Assembly (json);
+    asm.drawPlot('assembly_stats');
+  })
+</script>
+    </div>
+
 
     <script>
       var queries = window.location.href.replace(/^.+\?/,'').split('&')
